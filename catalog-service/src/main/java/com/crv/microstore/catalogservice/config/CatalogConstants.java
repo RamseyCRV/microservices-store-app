@@ -3,7 +3,15 @@ package com.crv.microstore.catalogservice.config;
 public interface CatalogConstants {
 
     interface ControllerConstants{
-
+        String GENERIC_URL = "/api/v1";
+        String CATALOG_URL = GENERIC_URL + "/catalog";
+        String CATEGORY_URL = GENERIC_URL + "/category";
+        String PRODUCT_URL = GENERIC_URL + "/product";
+        String URL_POST = "/new";
+        String URL_PUT = "/update";
+        String URL_DELETE = "/delete";
+        String URL_FIND_BY_ID = "/find";
+        String PATH_VARIABLE_ID = "id";
     }
 
     interface ModelConstants{
