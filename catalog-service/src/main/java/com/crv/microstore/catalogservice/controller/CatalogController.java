@@ -5,10 +5,10 @@ import com.crv.microstore.catalogservice.model.CatalogModel;
 import com.crv.microstore.catalogservice.service.CatalogService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,7 +30,7 @@ public class CatalogController {
 
     @PostMapping(value = ControllerConstants.URL_POST)
     public void saveNewCatalogModel(@RequestBody CatalogModel catalogModel){
-        if(!ObjectUtils.isEmpty(catalogModel)){
+        if(ObjectUtils.isNotEmpty(catalogModel)){
             catalogService.saveCatalog(catalogModel);
 
             log.info(" {} catalog with the Id {} was saved in the database...", catalogModel.getName(), catalogModel.getId());
@@ -49,7 +49,7 @@ public class CatalogController {
 
         CatalogModel catalogModel = null;
 
-        if (!ObjectUtils.isEmpty(id)) {
+        if (ObjectUtils.isNotEmpty(id)) {
             catalogModel = catalogService.findCatalogById(id).get();
 
             log.info("Catalog {} with id {} was found in the database", catalogModel.getName(), id);
@@ -65,7 +65,7 @@ public class CatalogController {
     @RequestMapping(value = ControllerConstants.URL_PUT, method = {RequestMethod.PUT, GET})
     public void updateCatalogModel(@RequestBody CatalogModel catalogModel){
 
-        if(!ObjectUtils.isEmpty(catalogModel)) {
+        if(ObjectUtils.isNotEmpty(catalogModel)) {
 
             catalogService.saveCatalog(catalogModel);
             log.info("{} catalog with id {} was saved", catalogModel.getName(), catalogModel.getId());
