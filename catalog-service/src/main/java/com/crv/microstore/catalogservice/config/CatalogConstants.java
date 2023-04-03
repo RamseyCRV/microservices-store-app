@@ -7,11 +7,13 @@ public interface CatalogConstants {
         String CATALOG_URL = GENERIC_URL + "/catalog";
         String CATEGORY_URL = GENERIC_URL + "/category";
         String PRODUCT_URL = GENERIC_URL + "/product";
+        String URL_PATH_VARIABLE_ID = "/{id}";
         String URL_POST = "/new";
         String URL_PUT = "/update";
         String URL_DELETE = "/delete";
-        String URL_FIND_BY_ID = "/find";
+        String URL_FIND_BY_ID = "/find" + URL_PATH_VARIABLE_ID;
         String PATH_VARIABLE_ID = "id";
+
     }
 
     interface ModelConstants{
