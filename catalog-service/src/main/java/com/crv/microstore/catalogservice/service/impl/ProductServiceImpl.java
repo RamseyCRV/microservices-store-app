@@ -3,8 +3,8 @@ package com.crv.microstore.catalogservice.service.impl;
 import com.crv.microstore.catalogservice.model.ProductModel;
 import com.crv.microstore.catalogservice.repository.ProductRepository;
 import com.crv.microstore.catalogservice.service.ProductService;
-import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,14 +12,13 @@ import java.util.Optional;
 
 @Service
 @Slf4j
-@AllArgsConstructor
 public class ProductServiceImpl implements ProductService {
 
-    private final ProductRepository repository;
+    @Autowired
+    private ProductRepository repository;
 
     @Override
     public List<ProductModel> getAllProducts() {
-        log.debug("Returning {} products", repository.findAll().size());
         return repository.findAll();
     }
 
