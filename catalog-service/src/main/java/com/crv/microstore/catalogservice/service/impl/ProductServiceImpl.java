@@ -26,6 +26,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void deleteProductById(Long id) {
         log.debug("Start deleting product with id = {}", id);
+
         repository.deleteById(id);
         log.debug("Product with id = {} was deleted with success...", id);
     }

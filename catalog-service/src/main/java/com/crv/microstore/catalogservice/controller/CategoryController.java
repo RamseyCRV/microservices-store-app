@@ -123,6 +123,14 @@ public class CategoryController {
                 categoryModel.setSuperCategory(categoryService.findCategoryById(categoryModel.getSuperCategoryId()).get());
             }
 
+            if (ObjectUtils.isEmpty(categoryModel.getCatalogId())){
+                final Long catalogId = categoryService.findCategoryById(categoryModel.getId()).get().getCatalogId();
+                categoryModel.setCatalogId(catalogId);
+                categoryModel.setCatalog(catalogService.findCatalogById(catalogId).get());
+            }else{
+                categoryModel.setCatalog(catalogService.findCatalogById(categoryModel.getCatalogId()).get());
+            }
+
             categoryService.saveCategory(categoryModel);
 
             log.info("{} category with id = {} was updated with success", categoryModel.getName(), categoryModel.getId());
