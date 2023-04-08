@@ -50,19 +50,19 @@ class CategoryServiceImplTest {
     @Test
     void deleteCategoryById() {
         List<ProductModel> productModelList = CsTestUtils.createProductModelList();
-        Mockito.when(productRepository.findAllByCategoryId(CsTestUtils.LONG_FIELD)).thenReturn(productModelList);
+        Mockito.when(productRepository.findAllByCategoryId(CsTestUtils.LONG_VALUE)).thenReturn(productModelList);
 
-        categoryService.deleteCategoryById(CsTestUtils.LONG_FIELD);
+        categoryService.deleteCategoryById(CsTestUtils.LONG_VALUE);
 
-        Mockito.verify(categoryRepository, Mockito.times(1)).deleteById(CsTestUtils.LONG_FIELD);
+        Mockito.verify(categoryRepository, Mockito.times(1)).deleteById(CsTestUtils.LONG_VALUE);
     }
 
     @Test
     void findCategoryById() {
 
-        Mockito.when(categoryRepository.findById(CsTestUtils.LONG_FIELD)).thenReturn(Optional.of(categoryModel));
+        Mockito.when(categoryRepository.findById(CsTestUtils.LONG_VALUE)).thenReturn(Optional.of(categoryModel));
 
-        assertEquals(categoryService.findCategoryById(CsTestUtils.LONG_FIELD), Optional.of(categoryModel));
+        assertEquals(categoryService.findCategoryById(CsTestUtils.LONG_VALUE), Optional.of(categoryModel));
 
     }
 

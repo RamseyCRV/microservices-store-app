@@ -13,16 +13,16 @@ public final class CsTestUtils {
     private CategoryModel category;
     private ProductModel product;
 
-    public static final String STRING_FIELD = "stringText";
-    public static final Long LONG_FIELD = 1L;
+    public static final String STRING_VALUE = "stringText";
+    public static final Long LONG_VALUE = 1L;
 
 
     public static CatalogModel createCatalogModel(){
         CatalogModel catalogModel = new CatalogModel();
 
-        catalogModel.setId(LONG_FIELD);
-        catalogModel.setName(STRING_FIELD);
-        catalogModel.setDescription(STRING_FIELD);
+        catalogModel.setId(LONG_VALUE);
+        catalogModel.setName(STRING_VALUE);
+        catalogModel.setDescription(STRING_VALUE);
 
         return catalogModel;
     }
@@ -37,11 +37,25 @@ public final class CsTestUtils {
     public static CategoryModel createCategoryModel_NoSuperCategory(){
         CategoryModel categoryModel = new CategoryModel();
 
-        categoryModel.setId(LONG_FIELD);
-        categoryModel.setName(STRING_FIELD);
-        categoryModel.setDescription(STRING_FIELD);
+        categoryModel.setId(LONG_VALUE);
+        categoryModel.setName(STRING_VALUE);
+        categoryModel.setDescription(STRING_VALUE);
         categoryModel.setCatalog(createCatalogModel());
-        categoryModel.setCatalogId(LONG_FIELD);
+        categoryModel.setCatalogId(LONG_VALUE);
+
+        return categoryModel;
+    }
+
+    public static CategoryModel createCategoryModel_WithSuperCategory(){
+        CategoryModel categoryModel = new CategoryModel();
+
+        categoryModel.setId(2L);
+        categoryModel.setName(STRING_VALUE);
+        categoryModel.setDescription(STRING_VALUE);
+        categoryModel.setCatalog(createCatalogModel());
+        categoryModel.setCatalogId(LONG_VALUE);
+        categoryModel.setSuperCategoryId(LONG_VALUE);
+        categoryModel.setSuperCategory(createCategoryModel_NoSuperCategory());
 
         return categoryModel;
     }
@@ -56,13 +70,13 @@ public final class CsTestUtils {
     public static ProductModel createProductModel(){
         ProductModel productModel = new ProductModel();
 
-        productModel.setId(LONG_FIELD);
-        productModel.setName(STRING_FIELD);
-        productModel.setDescription(STRING_FIELD);
+        productModel.setId(LONG_VALUE);
+        productModel.setName(STRING_VALUE);
+        productModel.setDescription(STRING_VALUE);
         productModel.setCategory(createCategoryModel_NoSuperCategory());
-        productModel.setCategoryId(LONG_FIELD);
+        productModel.setCategoryId(LONG_VALUE);
         productModel.setCatalog(createCatalogModel());
-        productModel.setCatalogId(LONG_FIELD);
+        productModel.setCatalogId(LONG_VALUE);
 
         return productModel;
     }

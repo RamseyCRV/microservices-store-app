@@ -31,7 +31,7 @@ public class CategoryController {
     }
 
     @PostMapping(value = ControllerConstants.URL_POST)
-    public void saveNewCatalogModel(@RequestBody CategoryModel categoryModel){
+    public void saveNewCategoryModel(@RequestBody CategoryModel categoryModel){
         if(ObjectUtils.isNotEmpty(categoryModel)){
 
             if(ObjectUtils.isNotEmpty(categoryModel.getCatalogId())

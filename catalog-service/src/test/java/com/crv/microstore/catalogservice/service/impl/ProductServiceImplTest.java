@@ -4,7 +4,6 @@ import com.crv.microstore.catalogservice.model.ProductModel;
 import com.crv.microstore.catalogservice.repository.ProductRepository;
 import com.crv.microstore.catalogservice.service.ProductService;
 import com.crv.microstore.catalogservice.testUtils.CsTestUtils;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -38,16 +37,16 @@ class ProductServiceImplTest {
 
     @Test
     void deleteProductById() {
-        productService.deleteProductById(CsTestUtils.LONG_FIELD);
+        productService.deleteProductById(CsTestUtils.LONG_VALUE);
 
-        Mockito.verify(productRepository, Mockito.times(1)).deleteById(CsTestUtils.LONG_FIELD);
+        Mockito.verify(productRepository, Mockito.times(1)).deleteById(CsTestUtils.LONG_VALUE);
     }
 
     @Test
     void findProductById() {
-        productService.findProductById(CsTestUtils.LONG_FIELD);
+        productService.findProductById(CsTestUtils.LONG_VALUE);
 
-        Mockito.verify(productRepository, Mockito.times(1)).findById(CsTestUtils.LONG_FIELD);
+        Mockito.verify(productRepository, Mockito.times(1)).findById(CsTestUtils.LONG_VALUE);
     }
 
     @Test
