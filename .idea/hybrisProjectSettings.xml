@@ -3,6 +3,11 @@
   <component name="HybrisProjectSettings">
     <option name="moduleSettings">
       <map>
+        <entry key="api-gateway">
+          <value>
+            <ModuleSettings />
+          </value>
+        </entry>
         <entry key="catalog-service">
           <value>
             <ModuleSettings />
@@ -14,6 +19,11 @@
           </value>
         </entry>
         <entry key="microservices-store">
+          <value>
+            <ModuleSettings />
+          </value>
+        </entry>
+        <entry key="smart-admin">
           <value>
             <ModuleSettings />
           </value>

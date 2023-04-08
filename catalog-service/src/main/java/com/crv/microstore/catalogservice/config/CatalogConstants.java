@@ -3,7 +3,7 @@ package com.crv.microstore.catalogservice.config;
 public interface CatalogConstants {
 
     interface ControllerConstants{
-        String GENERIC_URL = "/api/v1";
+        String GENERIC_URL = "/api/v1/cs";
         String CATALOG_URL = GENERIC_URL + "/catalog";
         String CATEGORY_URL = GENERIC_URL + "/category";
         String PRODUCT_URL = GENERIC_URL + "/product";

@@ -16,6 +16,8 @@
   <modules>
     <module>catalog-service</module>
     <module>eureka-service</module>
+    <module>api-gateway</module>
+    <module>smart-admin</module>
   </modules>
 
   <properties>
