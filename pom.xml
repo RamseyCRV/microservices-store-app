@@ -18,6 +18,8 @@
     <module>eureka-service</module>
     <module>api-gateway</module>
     <module>smart-admin</module>
+    <module>cloud-config</module>
+    <module>store-front</module>
   </modules>
 
   <properties>
@@ -51,22 +53,25 @@
       <artifactId>spring-cloud-starter-openfeign</artifactId>
       <version>4.0.1</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
       <version>3.12.0</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
       <version>5.2.0</version>
       <scope>test</scope>
     </dependency>
-
-
-
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-config</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
   </dependencies>
 
   <dependencyManagement>

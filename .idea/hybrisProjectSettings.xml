@@ -13,6 +13,11 @@
             <ModuleSettings />
           </value>
         </entry>
+        <entry key="cloud-config">
+          <value>
+            <ModuleSettings />
+          </value>
+        </entry>
         <entry key="eureka-service">
           <value>
             <ModuleSettings />
@@ -24,6 +29,11 @@
           </value>
         </entry>
         <entry key="smart-admin">
+          <value>
+            <ModuleSettings />
+          </value>
+        </entry>
+        <entry key="store-front">
           <value>
             <ModuleSettings />
           </value>

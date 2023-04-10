@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<body>
+    <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme" th:fragment="menu">
+
+    <div class="app-brand demo">
+        <a href="index.html" class="app-brand-link">
+            <span class="app-brand-text demo menu-text fw-bolder ms-2" th:text="#{menu.core.title}"/>
+        </a>
+    </div>
+
+    <div class="menu-inner-shadow"></div>
+
+    <ul class="menu-inner py-1">
+
+        <li class="menu-item">
+            <a th:href="@{/dashboard}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div th:text="#{menu.pages.dashboard}"/>
+            </a>
+        </li>
+
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text" th:text="#{menu.pages.separator.catalog}"/>
+        </li>
+
+        <li class="menu-item">
+            <a th:href="@{/catalog}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-book-content"></i>
+                <div th:text="#{menu.pages.catalogs}"/>
+            </a>
+        </li>
+
+        <li class="menu-item">
+            <a th:href="@{/category}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-category"></i>
+                <div th:text="#{menu.pages.categories}"/>
+            </a>
+        </li>
+
+        <li class="menu-item">
+            <a th:href="@{/product}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-cube"></i>
+                <div th:text="#{menu.pages.products}"/>
+            </a>
+        </li>
+
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text" th:text="#{menu.pages.separator.users}"/>
+        </li>
+
+        <li class="menu-item">
+            <a th:href="@{/customers}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-face"></i>
+                <div th:text="#{menu.pages.customers}"/>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a th:href="@{/employee}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-user"></i>
+                <div th:text="#{menu.pages.employee}"/>
+            </a>
+        </li>
+
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text" th:text="#{menu.pages.separator.orders}"/>
+        </li>
+
+        <li class="menu-item active">
+            <a th:href="@{/customers}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-cart-alt"></i>
+                <div th:text="#{menu.pages.orders}"/>
+            </a>
+        </li>
+
+    </ul>
+
+
+</aside>
+
+</body>
+</html>
