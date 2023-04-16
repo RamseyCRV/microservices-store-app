@@ -38,6 +38,11 @@
             <ModuleSettings />
           </value>
         </entry>
+        <entry key="user-service">
+          <value>
+            <ModuleSettings />
+          </value>
+        </entry>
       </map>
     </option>
   </component>

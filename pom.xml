@@ -20,6 +20,7 @@
     <module>smart-admin</module>
     <module>cloud-config</module>
     <module>store-front</module>
+    <module>user-service</module>
   </modules>
 
   <properties>
