@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="layout :: layout (~{::section})">
+
+<body>
+    <section>
+        <script src="/js/catalogPage.js"></script>
+
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCatalogModal" th:text="#{catalog.page.add.catalog.btn}"/>
+
+        <div class="card">
+            <h5 class="card-header" th:text = "#{catalog.page.card.title}"/>
+
+            <div class="table-responsive text-nowrap">
+                <table class="table table-striped">
+
+                    <thead>
+                    <tr>
+                        <th th:text = "#{catalog.page.card.table.name}"/>
+                        <th th:text = "#{catalog.page.card.table.description}"/>
+                        <th th:text = "#{catalog.page.card.table.products}"/>
+                        <th th:text = "#{catalog.page.card.table.categories}"/>
+                        <th th:text = "#{catalog.page.card.table.actions}"/>
+                    </tr>
+                    </thead>
+
+                    <tbody class="table-border-bottom-0">
+                    <tr th:each="catalog: ${catalogModels}">
+
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong th:text="${catalog.name}"/></td>
+
+                        <td th:text="${catalog.description}"/>
+
+                        <td th:text="${#lists.size(catalog.productModels)}"/>
+
+                        <td th:text="${#lists.size(catalog.categoryModels)}"/>
+
+                        <td>
+                            <div class="dropdown">
+                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> <span th:text="#{catalog.page.card.table.actions.edit.btn}"/></a>
+                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1" id="deleteCatalogBtn" th:href="@{/catalog/delete/(id=${catalog.id})}"></i> <span th:text="#{catalog.page.card.table.actions.delete.btn}"/></a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Add Catalog Modal -->
+        <div class="modal modal-top fade" id="addCatalogModal" tabindex="-1">
+            <div class="modal-dialog">
+                <form class="modal-content" th:action="@{/catalog/new}" method="post">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalTopTitle" th:text="#{catalog.page.modal.add.title}"/>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"/>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="row">
+                            <div class="col mb-3">
+                                <label for="addModalName" class="form-label" th:text="#{catalog.page.modal.add.name}"/>
+                                <input type="text" id="addModalName" class="form-control" th:placeholder="#{catalog.page.modal.add.name.placeholder}" name="name"/>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col mb-3">
+                                <label for="addModalDescription" class="form-label" th:text="#{catalog.page.modal.add.description}"/>
+                                <input type="text" id="addModalDescription" class="form-control" th:placeholder="#{catalog.page.modal.add.description.placeholder}" name="description"/>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" th:text="#{catalog.page.modal.add.close.btn}"/>
+                        <button type="submit" class="btn btn-primary" th:text="#{catalog.page.modal.add.save.btn}"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Edit Catalog Modal -->
+        <div class="modal modal-top fade" id="editCatalogModal" tabindex="-1">
+            <div class="modal-dialog">
+                <form class="modal-content" th:action="@{/catalog/new}" method="post">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalEditTopTitle" th:text="#{catalog.page.modal.add.title}"/>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"/>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="row">
+                            <div class="col mb-3">
+                                <label for="addModalName" class="form-label" th:text="#{catalog.page.modal.add.name}"/>
+                                <input type="text" id="editModalName" class="form-control" th:placeholder="#{catalog.page.modal.add.name.placeholder}" name="name"/>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col mb-3">
+                                <label for="addModalDescription" class="form-label" th:text="#{catalog.page.modal.add.description}"/>
+                                <input type="text" id="ModalDescription" class="form-control" th:placeholder="#{catalog.page.modal.add.description.placeholder}" name="description"/>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" th:text="#{catalog.page.modal.add.close.btn}"/>
+                        <button type="submit" class="btn btn-primary" th:text="#{catalog.page.modal.add.save.btn}"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Delete Catalog Modal -->
+        <div class="modal modal-top fade" id="deleteCatalogModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalDeleteTopTitle" th:text="#{catalog.page.modal.delete.title}"/>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="row">
+                            <div class="col mb-3">
+                               <p>Are you sure you want to delete this catalog?</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" th:text="#{catalog.page.modal.add.close.btn}"/>
+                        <button type="submit" class="btn btn-primary" th:text="#{catalog.page.modal.add.save.btn}" id="confirmDeleteCatalogBtn"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</body>
+</html>
